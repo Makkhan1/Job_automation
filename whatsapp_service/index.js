@@ -32,15 +32,26 @@ mongoose.connect(process.env.MONGODB_URI).then(() => {
     // Initialize the MongoDB Store for WhatsApp Auth
     const store = new MongoStore({ mongoose: mongoose });
 
-    // --- 2. INITIALIZE WHATSAPP CLIENT ---
+   // --- 2. INITIALIZE WHATSAPP CLIENT ---
     const client = new Client({
         authStrategy: new RemoteAuth({
             clientId: 'job-bot-session',
             store: store,
-            backupSyncIntervalMs: 300000 // Backs up sync state every 5 minutes
+            backupSyncIntervalMs: 300000 
         }),
         puppeteer: {
-            args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu']
+            // Force Chrome into extreme low-memory mode
+            args: [
+                '--no-sandbox', 
+                '--disable-setuid-sandbox', 
+                '--disable-dev-shm-usage', 
+                '--disable-gpu',
+                '--disable-accelerated-2d-canvas',
+                '--no-first-run',
+                '--no-zygote',
+                '--disable-extensions',
+                '--js-flags=--max-old-space-size=150' // Forces Node's garbage collector to be aggressive
+            ]
         }
     });
 
