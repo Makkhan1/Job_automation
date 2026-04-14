@@ -1,0 +1,58 @@
+# =========================
+# 1. Secrets & Environment
+# =========================
+# NEVER commit your API keys or environment variables
+.env
+.env.local
+
+# =========================
+# 2. Python & FastAPI
+# =========================
+# Ignore virtual environments
+venv/
+env/
+.venv/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# =========================
+# 3. Databases
+# =========================
+# Ignore your local SQLite database so you don't overwrite live data
+*.db
+*.sqlite3
+pipeline.db
+
+# =========================
+# 4. Node.js & WhatsApp Bot
+# =========================
+# Ignore massive node_modules folders
+node_modules/
+npm-debug.log
+
+# 🚨 CRITICAL: Ignore WhatsApp session data 
+# If you commit this, anyone can hijack your WhatsApp Web session!
+.wwebjs_auth/
+.wwebjs_cache/
+
+# =========================
+# 5. OS & IDE Files
+# =========================
+# Ignore Mac/Windows system files
+.DS_Store
+Thumbs.db
+
+# Ignore VS Code or PyCharm settings
+.vscode/
+.idea/
+
+# =========================
+# 6. Telegram Sessions
+# =========================
+# Protects active Telegram login tokens
+*.session
+*.session-journal
