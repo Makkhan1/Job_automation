@@ -1,4 +1,4 @@
-# 🚀 Automated Job Pipeline: Telegram to WhatsApp
+# 🚀 Automated Job Pipeline
 
 ## 📋 Overview
 This project is an automated, high-performance cloud pipeline designed to scrape job postings from Telegram channels, process and format them using an LLM (Groq 120B), and instantly broadcast them to a dedicated WhatsApp channel. 
